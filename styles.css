@@ -1,0 +1,170 @@
+/* Color Palette - Custom Colors */
+:root {
+    --teal: #007f7f; /* Teal */
+    --blue: #5f8f9f; /* Blue */
+    --gray: #c0c0c0; /* Gray */
+    --olive: #8f8f5f; /* Olive */
+    --white: #ffffff; /* White */
+}
+
+/* Basic Styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    color: var(--blue);
+}
+
+h1, h2 {
+    font-family: 'Roboto', sans-serif;
+    color: var(--blue);
+    margin-bottom: 20px;
+}
+
+/* Topbar Styling */
+.topbar {
+    display: flex;
+    justify-content: space-between; /* Space between text and image */
+    align-items: center;
+    background-color: var(--teal);
+    padding: 20px;
+    margin-bottom: 40px;
+    width: 100%;
+}
+
+.topbar-text {
+    flex: 1;
+    padding-left: 100px; /* Added padding to the right of the heading */
+}
+
+.topbar-text h1 {
+    margin: 0;
+    color: var(--white);
+    font-size: 32px; /* Adjust heading size */
+}
+
+.topbar-image img {
+    width: 150px; /* Adjust image size */
+    height: auto;
+    max-width: 100%;
+    padding-right: 100px; /* Added padding to the right of the image */
+}
+
+/* Container for the buttons */
+.container {
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tabs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px; /* Increased gap between the buttons */
+    width: 100%;
+}
+
+/* Button Styling */
+.tab-button {
+    padding: 20px 40px; /* Increased padding for larger buttons */
+    font-size: 20px; /* Bigger font size */
+    background-color: var(--teal);
+    color: var(--white);
+    border: 2px solid var(--teal);
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-weight: 500;
+}
+
+.tab-button:hover {
+    background-color: var(--blue);
+    border-color: var(--blue);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Tab Hover Options */
+.tab {
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.tab:hover {
+    transform: translateY(-5px);
+}
+
+.tab-options {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--white);
+    border: 1px solid var(--gray);
+    width: 100%;
+    border-radius: 8px;
+    z-index: 10;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.tab-options a {
+    display: block;
+    padding: 12px 25px; /* Increased padding for better spacing */
+    text-decoration: none;
+    color: var(--blue);
+    font-size: 16px;
+    font-weight: 400;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-bottom: 1px solid var(--gray);
+}
+
+.tab-options a:last-child {
+    border-bottom: none;
+}
+
+.tab-options a:hover {
+    background-color: var(--gray);
+    color: var(--teal);
+}
+
+/* Show Options on Hover */
+.tab:hover .tab-options {
+    display: block;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .tabs {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .tab-button {
+        font-size: 18px; /* Slightly smaller font on medium screens */
+        padding: 15px 30px; /* Adjusted padding */
+    }
+
+    .tab-options a {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tabs {
+        grid-template-columns: 1fr;
+    }
+
+    .tab-button {
+        font-size: 16px;
+        padding: 12px 24px; /* Adjusted padding for smaller screens */
+    }
+
+    .tab-options a {
+        font-size: 12px;
+    }
+}

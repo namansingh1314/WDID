@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --teal: #007f7f;
+            --blue: #5f8f9f;
+            --gray: #c0c0c0;
+            --olive: #8f8f5f;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: var(--blue);
+            line-height: 1.6;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--teal);
+            margin-top: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .section {
+            background: var(--white);
+            margin-bottom: 40px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            font-size: 28px;
+            color: var(--teal);
+            margin-bottom: 15px;
+        }
+
+        .section img {
+            display: block;
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .section p {
+            margin-bottom: 15px;
+            color: var(--blue);
+            text-align: justify;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--teal);
+            color: var(--white);
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Welcome to Read</h1>
+    <div class="container">
+
+        <!-- Section 1 -->
+        <div class="section">
+            <h2>CI/CD pipeline for Terraform Arch repo</h2>
+            <p>This section explains the CI/CD pipeline for the Terraform-Arch repository:</p>
+            <img src="terrapipe.jpg" alt="Example Image 1">
+            <ul>
+                <li><strong>Pipeline Overview</strong>
+                    <ul>
+                        <li><strong>Pipeline Name:</strong> Terraform-Arch</li>
+                        <li><strong>Pipeline Run ID:</strong> #20241021.64</li>
+                        <li><strong>Duration:</strong> 4 minutes and 3 seconds</li>
+                        <li><strong>Agent Information:</strong>
+                            <ul>
+                                <li>Pool: Azure Pipelines</li>
+                                <li>Image: ubuntu-latest</li>
+                                <li>Agent: Hosted agent</li>
+                                <li>Start Time: Oct 21, 3:42 PM</li>
+                                <li>Warnings: Unable to expand variables (no impact on success)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <li><strong>Steps in the Pipeline</strong>
+                    <ul>
+                        <li><strong>Initialize Job:</strong> Sets up the pipeline environment</li>
+                        <li><strong>Checkout Terraform-Arch:</strong> Pulls the required Terraform code</li>
+                        <li><strong>Install Terraform:</strong> Installs the Terraform CLI tools</li>
+                        <li><strong>Set Azure Environment:</strong> Configures Azure credentials</li>
+                        <li><strong>Terraform Init:</strong> Initializes Terraform</li>
+                        <li><strong>Terraform Plan:</strong> Generates execution plan</li>
+                        <li><strong>Terraform Apply:</strong> Deploys infrastructure to Azure (took 3m 45s)</li>
+                        <li><strong>Post-job: Checkout Terraform-Arch:</strong> Cleans up sensitive data</li>
+                        <li><strong>Finalize Job:</strong> Completes post-run processes</li>
+                        <li><strong>Report Build Status:</strong> Marks pipeline as successful</li>
+                    </ul>
+                </li>
+
+                <li><strong>Warnings in the Right Panel:</strong>
+                    <ul>
+                        <li>Unable to expand variables, potential configuration issue</li>
+                    </ul>
+                </li>
+
+                <li><strong>Conclusion:</strong>
+                    <ul>
+                        <li>The pipeline successfully deployed infrastructure with minimal warnings</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="section">
+            <h2>CI/CD Pipeline for Dockerfile repo by Sweekruti</h2>
+            <p>This section explains the CI/CD pipeline for the Dockerfile repository:</p>
+            <img src="dockerpipe.jpg" alt="Example Image 2">
+            <ul>
+                <li><strong>Pipeline Overview</strong>
+                    <ul>
+                        <li><strong>Pipeline Name:</strong> Docker</li>
+                        <li><strong>Pipeline Run ID:</strong> #20241105.8</li>
+                        <li><strong>Pipeline Structure:</strong>
+                            <ul>
+                                <li>Build Image: Successfully completed</li>
+                                <li>Push Image: Failed</li>
+                            </ul>
+                        </li>
+                        <li><strong>Duration:</strong> 2m 35s (Build), 15s (Push)</li>
+                    </ul>
+                </li>
+
+                <li><strong>Steps in the Pipeline</strong>
+                    <ul>
+                        <li><strong>Build Image Stage:</strong>
+                            <ul>
+                                <li>Initialize Job: Sets up environment</li>
+                                <li>Checkout Docker@main: Pulls code from main branch</li>
+                                <li>Build: Successfully builds Docker image</li>
+                            </ul>
+                        </li>
+                        <li><strong>Push Image Stage:</strong>
+                            <ul>
+                                <li>Login to ACR: Logs into Azure Container Registry</li>
+                                <li>List Docker Images Before Push: Ensures image availability</li>
+                                <li><strong>Push an Image:</strong> <span style="color: red;">Failed</span> due to possible permissions or configuration issues</li>
+                            </ul>
+                        </li>
+                        <li><strong>Post-job:</strong> Cleans up resources after execution</li>
+                        <li><strong>Finalize Job:</strong> Completes post-run cleanup</li>
+                        <li><strong>Report Build Status:</strong> Marks pipeline as failed due to push error</li>
+                    </ul>
+                </li>
+
+                <li><strong>Actions to Fix the Failure:</strong>
+                    <ul>
+                        <li>Verify ACR Permissions (AcrPush role)</li>
+                        <li>Confirm Image Tag and Repository Name</li>
+                        <li>Check Docker Registry Configuration</li>
+                        <li>Examine Logs for error details</li>
+                        <li>Retry the pipeline after fixes</li>
+                    </ul>
+                </li>
+
+                <li><strong>Conclusion:</strong>
+                    <ul>
+                        <li>The pipeline successfully built the Docker image but failed during the push step.</li>
+                        <li>Logs should help pinpoint the exact cause of the failure.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="section">
+            <h2>CI/CD pipeline for Sarthak's Azure Function</h2>
+            <p>This section explains the CI/CD pipeline for deploying a function to Azure:</p>
+            <img src="cloudpipe.jpg" alt="Example Image 3">
+            <ul>
+                <li><strong>Overview of the UI</strong>
+                    <ul>
+                        <li><strong>Project Name:</strong> BESS-Digi</li>
+                        <li><strong>Pipeline Name:</strong> cloud</li>
+                        <li><strong>Run ID:</strong> #20241107.9</li>
+                    </ul>
+                </li>
+
+                <li><strong>Pipeline Jobs</strong>
+                    <ul>
+                        <li><strong>Initialize Job:</strong> Prepares the environment</li>
+                        <li><strong>Checkout cloud@nosql:</strong> Fetches the cloud branch code</li>
+                        <li><strong>Use Python 3.x:</strong> Sets up Python 3 runtime</li>
+                        <li><strong>Install Dependencies:</strong> Installs required libraries</li>
+                        <li><strong>Copy Necessary Files:</strong> Prepares files for deployment</li>
+                        <li><strong>Archive func_insert_sample_func:</strong> Packages the function for deployment</li>
+                        <li><strong>Show Artifact Staging Directory:</strong> Outputs the build artifact location</li>
+                        <li><strong>Deploy to Azure Functions:</strong> Deploys the function</li>
+                        <li><strong>Post-job:</strong> Cleans up resources after the job</li>
+                        <li><strong>Finalize Job:</strong> Completes cleanup tasks</li>
+                        <li><strong>Report Build Status:</strong> Marks the pipeline as successful</li>
+                    </ul>
+                </li>
+
+                <li><strong>Job Summary Panel (Right)</strong>
+                    <ul>
+                        <li><strong>Pool:</strong> Hosted Azure Pipelines</li>
+                        <li><strong>Agent:</strong> Hosted agent</li>
+                        <li><strong>Start Time:</strong> Nov 7, 1:14 PM</li>
+                        <li><strong>Duration:</strong> 44 seconds</li>
+                    </ul>
+                </li>
+
+                <li><strong>Status Indicators:</strong>
+                    <ul>
+                        <li>Green checkmarks indicate successful completion of each step</li>
+                    </ul>
+                </li>
+
+                <li><strong>Conclusion:</strong>
+                    <ul>
+                        <li>The pipeline successfully deployed the function to Azure.</li>
+                        <li>All steps completed efficiently within 44 seconds.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</body>
+
+
+</html>
